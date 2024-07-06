@@ -1,0 +1,12 @@
+authorizer:
+  name: verifyToken
+  type: JWT
+  identitySource: method.request.header.Authorization
+  issuerUrl: 'https://example.auth0.com/'
+  audience: 'minha-aplicacao'
+  arn:
+    Fn::GetAtt:
+      - VerifyTokenLambdaFunction
+      - Arn
+  resultTtlInSeconds: 3600
+

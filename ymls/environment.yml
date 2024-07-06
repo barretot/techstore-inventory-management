@@ -1,0 +1,2 @@
+ISSUER_URL: 'https://example.auth0.com/'  
+AUDIENCE: 'minha-aplicacao'  

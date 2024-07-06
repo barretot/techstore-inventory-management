@@ -1,0 +1,30 @@
+service: techstore-inventory-management
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+
+functions:
+  addProductInfos:
+    handler: src/app.lambdaHandler
+    events:
+      - http:
+          path: /products
+          method: POST
+
+  verifyToken:
+    handler: handler.verifyToken
+    events:
+      - http:
+          path: /verifyToken
+          method: POST
+
+
+plugins:
+  - serverless-iam-roles-per-function
+
+resources: ${file(ymls/resources.yml)}
+custom: ${file(ymls/custom.yml)}
