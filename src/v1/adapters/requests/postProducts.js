@@ -39,12 +39,27 @@ const getAllProductsRequest = async () => {
   }
 }
 
-const postJwtTokenRequest = async (event) => {
-  const token = await HTTPHandler.postJwtToken(event)
+const postAuthenticateRequest = async (event) => {
+  const result = await HTTPHandler.postAuthenticate(event)
 
   return {
     statusCode: 200,
-    body: JSON.stringify(token)
+    body: JSON.stringify(result)
+  }
+}
+
+const postAuthorizerRequest = async (event) => {
+  const result = await HTTPHandler.postAuthorizer(event)
+
+  return result
+}
+
+const postSignUpRequest = async (event) => {
+  const result = await HTTPHandler.postSignUp(event)
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(result)
   }
 }
 
@@ -53,5 +68,7 @@ module.exports = {
   putProductsRequest,
   getProductsRequest,
   getAllProductsRequest,
-  postJwtTokenRequest
+  postAuthorizerRequest,
+  postSignUpRequest,
+  postAuthenticateRequest
 }

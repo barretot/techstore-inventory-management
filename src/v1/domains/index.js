@@ -2,12 +2,16 @@ const { addProductInfos } = require('./addProductInfos')
 const { updateProductInfos } = require('./updateProductInfos')
 const { searchProductInfos } = require('./getProductInfos')
 const { searchAllProductInfos } = require('./searchAllProductsInfos')
-const { verifyToken } = require('./verifyToken')
+const { authorizer } = require('./authorizer')
+const { authenticate } = require('./authenticate')
+const { signUp } = require('./signup')
 
 module.exports = {
   addProductInfos,
   updateProductInfos,
   searchProductInfos,
   searchAllProductInfos,
-  verifyToken
+  authorizer,
+  authenticate,
+  signUp
 }

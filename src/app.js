@@ -3,7 +3,9 @@ const {
   putProductsRequest,
   getProductsRequest,
   getAllProductsRequest,
-  postJwtTokenRequest
+  postAuthorizerRequest,
+  postSignUpRequest,
+  postAuthenticateRequest
 } = require(
   './v1/adapters/requests/postProducts'
 )
@@ -36,7 +38,20 @@ exports.searchAllProductsHandler = async (event) => {
   return response
 }
 
-exports.verifyTokenHandler = async (event) => {
-  const response = await postJwtTokenRequest(event)
+exports.authenticateHandler = async (event) => {
+  const response = await postAuthenticateRequest(JSON.parse(event.body))
+  console.log('TOUKEN', response)
+  return response
+}
+
+exports.authorizerHandler = async (event) => {
+  console.log(event)
+  const response = await postAuthorizerRequest(event)
+  console.log('VAI EMEM', response)
+  return response
+}
+
+exports.signUpHandler = async (event) => {
+  const response = await postSignUpRequest(JSON.parse(event.body))
   return response
 }

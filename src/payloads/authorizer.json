@@ -1,0 +1,5 @@
+{
+  "type": "TOKEN",
+  "methodArn": "arn:aws:execute-api:us-east-1:907257771839:e0nmq5qbac/dev/GET/products",
+  "authorizationToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFhYTkyMTRhLTQzZGEtNDU1MS05Njg3LTU4MGY5OTQ0MjUxMiIsImVtYWlsIjoidGVzdGVAdGVzdGU0LmNvbSIsImlhdCI6MTcyMDM5Mzk4MiwiZXhwIjoxNzIwNDgwMzgyfQ.GohqQvlIMWVJUg8MfGFfpmivFRwn8vMNo4XOFjXJECI"
+}

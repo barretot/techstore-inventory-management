@@ -1,15 +1,29 @@
 Resources:
+
   TechStoreProducts:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: tech-store-products
-        AttributeDefinitions:
-          - AttributeName: ID
-            AttributeType: S 
-        KeySchema:
-          - AttributeName: ID
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 5
-          
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: tech-store-products
+      AttributeDefinitions:
+        - AttributeName: ID
+          AttributeType: S 
+      KeySchema:
+        - AttributeName: ID
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
+  TechStoreAdmins:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: tech-store-admins
+      AttributeDefinitions:
+        - AttributeName: ID
+          AttributeType: S 
+      KeySchema:
+        - AttributeName: ID
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5

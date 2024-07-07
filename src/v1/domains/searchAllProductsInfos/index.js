@@ -1,4 +1,4 @@
-const repository = require('../../ports/getProductInfos/repository')
+const repository = require('../../ports/getAllProductInfos/repository')
 const { searchAllDynamoParams } = require('./mappers/createDynamoParams')
 const { mapperDynamoResponse } = require('./mappers/mapperDynamoResponse')
 

@@ -16,6 +16,7 @@ provider:
         - dynamodb:UpdateItem
       Resource: 
         - "arn:aws:dynamodb:us-east-1:907257771839:table/tech-store-products"
+        - "arn:aws:dynamodb:us-east-1:907257771839:table/tech-store-admins"
     - Effect: Allow
       Action:
         - s3:PutObject
@@ -34,9 +35,7 @@ functions:
             parameters:
               paths:
                 id: true
-          authorizer:
-            name: JwtAuthorizer
-            type: JWT
+          authorizer: authorizer
 
   searchAllProductsInfos:
     handler: src/app.searchAllProductsHandler
@@ -44,9 +43,7 @@ functions:
       - http:
           path: /products
           method: GET
-          authorizer:
-            name: JwtAuthorizer
-            type: JWT
+          authorizer: authorizer
 
   addProductInfos:
     handler: src/app.addProductHandler
@@ -54,9 +51,7 @@ functions:
       - http:
           path: /products
           method: POST
-          authorizer:
-            name: JwtAuthorizer
-            type: JWT
+          authorizer: authorizer
 
   updateProductInfos:
     handler: src/app.updateProductHandler
@@ -68,17 +63,24 @@ functions:
             parameters:
               paths:
                 id: true
-          authorizer:
-            name: JwtAuthorizer
-            type: JWT
+          authorizer: authorizer
 
-  verifyToken:
-    handler: src/app.verifyTokenHandler
+  authenticate:
+    handler: src/app.authenticateHandler
     events:
       - http:
-          path: /verifyToken
+          path: admin/authenticate
           method: POST
 
+  authorizer:
+    handler: src/app.authorizerHandler
+
+  signUp:
+    handler: src/app.signUpHandler
+    events:
+      - http:
+          path: admin/register
+          method: POST
 
 plugins:
   - serverless-iam-roles-per-function

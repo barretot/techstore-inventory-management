@@ -60,15 +60,43 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Verify Token",
+      "name": "Authenticate user",
       "program": "${workspaceFolder}/node_modules/.bin/sls",
       "args": [
         "invoke",
         "local",
         "-f",
-        "verifyToken",
+        "authenticate",
         "--path",
-        "${workspaceFolder}/src/payloads/verifyToken.json"
+        "${workspaceFolder}/src/payloads/authenticate.json"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Authorizer user",
+      "program": "${workspaceFolder}/node_modules/.bin/sls",
+      "args": [
+        "invoke",
+        "local",
+        "-f",
+        "authorizer",
+        "--path",
+        "${workspaceFolder}/src/payloads/authorizer.json"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Register SignUp",
+      "program": "${workspaceFolder}/node_modules/.bin/sls",
+      "args": [
+        "invoke",
+        "local",
+        "-f",
+        "signUp",
+        "--path",
+        "${workspaceFolder}/src/payloads/signup.json"
       ]
     }
   ]

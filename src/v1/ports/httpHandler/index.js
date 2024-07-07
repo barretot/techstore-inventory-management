@@ -20,8 +20,18 @@ const getAllProducts = async () => {
   return product
 }
 
-const postJwtToken = async (event) => {
-  const product = await domains.verifyToken(event)
+const postAuthorizer = async (event) => {
+  const product = await domains.authorizer(event)
+  return product
+}
+
+const postAuthenticate = async (event) => {
+  const product = await domains.authenticate(event)
+  return product
+}
+
+const postSignUp = async (event) => {
+  const product = await domains.signUp(event)
   return product
 }
 
@@ -30,5 +40,7 @@ module.exports = {
   putProduct,
   getProduct,
   getAllProducts,
-  postJwtToken
+  postAuthorizer,
+  postSignUp,
+  postAuthenticate
 }
