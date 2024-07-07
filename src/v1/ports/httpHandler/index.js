@@ -10,7 +10,25 @@ const putProduct = async (payload, id) => {
   return product
 }
 
+const getProduct = async (id) => {
+  const product = await domains.searchProductInfos(id)
+  return product
+}
+
+const getAllProducts = async () => {
+  const product = await domains.searchAllProductInfos()
+  return product
+}
+
+const postJwtToken = async (event) => {
+  const product = await domains.verifyToken(event)
+  return product
+}
+
 module.exports = {
   addProduct,
-  putProduct
+  putProduct,
+  getProduct,
+  getAllProducts,
+  postJwtToken
 }

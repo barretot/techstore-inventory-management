@@ -1,4 +1,4 @@
-const dynamo = require('../../adapters/addProductsInfos/dynamoDB')
+const dynamo = require('../../adapters/dynamoDB')
 
 const insert = async (product) => {
   const data = await dynamo.insertItem(product)

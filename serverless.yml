@@ -11,20 +11,52 @@ provider:
     - Effect: Allow
       Action:
         - dynamodb:PutItem
+        - dynamodb:GetItem
+        - dynamodb:Scan
+        - dynamodb:UpdateItem
       Resource: 
         - "arn:aws:dynamodb:us-east-1:907257771839:table/tech-store-products"
     - Effect: Allow
       Action:
         - s3:PutObject
+        - s3:DeleteObject
       Resource: "arn:aws:s3:::tech-store-images-bucket/*"
 
 functions:
+
+  searchProductInfos:
+    handler: src/app.searchProductHandler
+    events:
+      - http:
+          path: /products/{id}
+          method: GET
+          request:
+            parameters:
+              paths:
+                id: true
+          authorizer:
+            name: JwtAuthorizer
+            type: JWT
+
+  searchAllProductsInfos:
+    handler: src/app.searchAllProductsHandler
+    events:
+      - http:
+          path: /products
+          method: GET
+          authorizer:
+            name: JwtAuthorizer
+            type: JWT
+
   addProductInfos:
     handler: src/app.addProductHandler
     events:
       - http:
           path: /products
           method: POST
+          authorizer:
+            name: JwtAuthorizer
+            type: JWT
 
   updateProductInfos:
     handler: src/app.updateProductHandler
@@ -36,9 +68,12 @@ functions:
             parameters:
               paths:
                 id: true
+          authorizer:
+            name: JwtAuthorizer
+            type: JWT
 
   verifyToken:
-    handler: handler.verifyToken
+    handler: src/app.verifyTokenHandler
     events:
       - http:
           path: /verifyToken

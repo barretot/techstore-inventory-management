@@ -1,11 +1,39 @@
+const repository = require('../../ports/putProductInfos/repository')
+const s3 = require('../../ports/addProductInfos/uploadImage')
+const { isValidPayload } = require('../../ports/putProductInfos/validator')
+const { searchDynamoParams, updateDynamoParams } = require('./mappers/createDynamoParams')
+const { addS3Params, deleteS3Params } = require('./mappers/createS3Params')
+const { getImageKey } = require('./utils')
+
 const updateProductInfos = async (payload, id) => {
   try {
-    return {
-      payload,
-      id
+    const isValid = await isValidPayload(payload)
+
+    if (!isValid) {
+      return isValid.message
     }
+
+    const atualImagePath = await repository.search(
+      searchDynamoParams(id)
+    )
+
+    const imageKey = getImageKey(atualImagePath)
+
+    await s3.deleteObject(
+      deleteS3Params(imageKey)
+    )
+
+    const { params, imagePath } = addS3Params(payload)
+
+    await s3.upload(params)
+
+    const updateParams = updateDynamoParams(payload, imagePath, id)
+
+    const product = await repository.update(updateParams)
+
+    return product
   } catch (err) {
-    console.log(err)
+    throw new Error(err)
   }
 }
 

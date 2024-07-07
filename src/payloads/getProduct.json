@@ -7,7 +7,7 @@
   "queryStringParameters": null,
   "multiValueQueryStringParameters": null,
   "pathParameters": {
-    "id": "5249fa46-9b9b-4e78-ae91-d30f5e23ec13"
+    "id": "de36494a-fda9-4ad4-a8e1-9f3d9cad54aa"
   },
   "stageVariables": null,
   "requestContext": {
@@ -42,6 +42,6 @@
     "domainName": "testPrefix.testDomainName",
     "apiId": "e0nmq5qbac"
   },
-  "body": "{\r\n  \"description\": \"CELULAR LENTO\",\r\n  \"image\": \"imageTest\",\r\n  \"price\": 200\r\n}",
+  "body": "",
   "isBase64Encoded": false
 }

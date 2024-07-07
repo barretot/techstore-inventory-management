@@ -4,7 +4,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Serverless",
+      "name": "Add Product Lambda",
       "program": "${workspaceFolder}/node_modules/.bin/sls",
       "args": [
         "invoke",
@@ -12,7 +12,63 @@
         "-f",
         "addProductInfos",
         "--path",
-        "${workspaceFolder}/payload.json"
+        "${workspaceFolder}/src/payloads/addProduct.json"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Update Product Lambda",
+      "program": "${workspaceFolder}/node_modules/.bin/sls",
+      "args": [
+        "invoke",
+        "local",
+        "-f",
+        "updateProductInfos",
+        "--path",
+        "${workspaceFolder}/src/payloads/updateProduct.json"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Search Product Lambda",
+      "program": "${workspaceFolder}/node_modules/.bin/sls",
+      "args": [
+        "invoke",
+        "local",
+        "-f",
+        "searchProductInfos",
+        "--path",
+        "${workspaceFolder}/src/payloads/getProduct.json"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Search All Products Lambda",
+      "program": "${workspaceFolder}/node_modules/.bin/sls",
+      "args": [
+        "invoke",
+        "local",
+        "-f",
+        "searchAllProductsInfos",
+        "--path",
+        "${workspaceFolder}/src/payloads/getAllProduct.json"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Verify Token",
+      "program": "${workspaceFolder}/node_modules/.bin/sls",
+      "args": [
+        "invoke",
+        "local",
+        "-f",
+        "verifyToken",
+        "--path",
+        "${workspaceFolder}/src/payloads/verifyToken.json"
       ]
     }
   ]

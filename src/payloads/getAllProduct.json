@@ -1,28 +1,25 @@
 {
   "resource": "/products/{id}",
-  "path": "/products/234234242",
+  "path": "/products/5249fa46-9b9b-4e78-ae91-d30f5e23ec13",
   "httpMethod": "PUT",
   "headers": null,
   "multiValueHeaders": null,
   "queryStringParameters": null,
   "multiValueQueryStringParameters": null,
-  "pathParameters": {
-    "id": "234234242"
-  },
   "stageVariables": null,
   "requestContext": {
     "resourceId": "nepmaq",
     "resourcePath": "/products/{id}",
     "httpMethod": "PUT",
-    "extendedRequestId": "ahaOtELbIAMFl0w=",
-    "requestTime": "07/Jul/2024:03:24:13 +0000",
+    "extendedRequestId": "ahdNuG7QIAMFwxg=",
+    "requestTime": "07/Jul/2024:03:44:36 +0000",
     "path": "/products/{id}",
     "accountId": "907257771839",
     "protocol": "HTTP/1.1",
     "stage": "test-invoke-stage",
     "domainPrefix": "testPrefix",
-    "requestTimeEpoch": 1720322653891,
-    "requestId": "c982ba21-1ab2-46b8-80ba-2e59a5b1105e",
+    "requestTimeEpoch": 1720323876373,
+    "requestId": "697499c5-f2ac-4cba-ad41-b97f98ca3d2f",
     "identity": {
       "cognitoIdentityPoolId": null,
       "cognitoIdentityId": null,
@@ -35,13 +32,13 @@
       "accountId": "907257771839",
       "caller": "AIDA5GPGG647VMWORPJB2",
       "sourceIp": "test-invoke-source-ip",
-      "accessKey": "ASIA5GPGG647SLRHYUN6",
+      "accessKey": "ASIA5GPGG647W56QUPS6",
       "cognitoAuthenticationProvider": null,
       "user": "AIDA5GPGG647VMWORPJB2"
     },
     "domainName": "testPrefix.testDomainName",
     "apiId": "e0nmq5qbac"
   },
-  "body": "{\"name\":\"iPhone 15\",\"description\":\"Fast smarthphone\",\"image\":\"imagetest\",\"price\":4000,\"sku\":\"PRODUCT_001\",\"category\":\"Smarthphone\"}",
+  "body": "",
   "isBase64Encoded": false
 }

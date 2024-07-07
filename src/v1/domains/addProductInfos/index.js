@@ -1,12 +1,12 @@
 const repository = require('../../ports/addProductInfos/repository')
 const s3 = require('../../ports/addProductInfos/uploadImage')
-const validate = require('../../ports/addProductInfos/validator')
+const { isValidPayload } = require('../../ports/addProductInfos/validator')
 const createDynamoParams = require('./mappers/createDynamoParams')
 const createS3Params = require('./mappers/createS3Params')
 
 const addProductInfos = async (payload) => {
   try {
-    const isValid = await validate(payload)
+    const isValid = await isValidPayload(payload)
 
     if (!isValid) {
       return isValid.message
@@ -22,7 +22,7 @@ const addProductInfos = async (payload) => {
 
     return product
   } catch (err) {
-    console.log(err)
+    throw new Error(err)
   }
 }
 
