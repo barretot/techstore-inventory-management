@@ -1,7 +1,7 @@
-const HTTPHandler = require('../../../ports/addProductInfos/httpHandler')
+const HTTPHandler = require('../../../ports/httpHandler')
 
-const postProductsRequest = async (productBody) => {
-  const product = await HTTPHandler.addProduct(productBody)
+const postProductsRequest = async (payload) => {
+  const product = await HTTPHandler.addProduct(payload)
 
   return {
     statusCode: 200,
@@ -9,4 +9,13 @@ const postProductsRequest = async (productBody) => {
   }
 }
 
-module.exports = postProductsRequest
+const putProductsRequest = async (payload, id) => {
+  const product = await HTTPHandler.putProduct(payload, id)
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ product })
+  }
+}
+
+module.exports = { postProductsRequest, putProductsRequest }

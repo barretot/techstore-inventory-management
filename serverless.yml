@@ -7,13 +7,35 @@ provider:
   region: us-east-1
   stage: ${opt:stage, 'dev'}
 
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+      Resource: 
+        - "arn:aws:dynamodb:us-east-1:907257771839:table/tech-store-products"
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+      Resource: "arn:aws:s3:::tech-store-images-bucket/*"
+
 functions:
   addProductInfos:
-    handler: src/app.lambdaHandler
+    handler: src/app.addProductHandler
     events:
       - http:
           path: /products
           method: POST
+
+  updateProductInfos:
+    handler: src/app.updateProductHandler
+    events:
+      - http:
+          path: /products/{id}
+          method: PUT
+          request:
+            parameters:
+              paths:
+                id: true
 
   verifyToken:
     handler: handler.verifyToken

@@ -1,12 +1,24 @@
 const repository = require('../../ports/addProductInfos/repository')
+const s3 = require('../../ports/addProductInfos/uploadImage')
+const validate = require('../../ports/addProductInfos/validator')
+const createDynamoParams = require('./mappers/createDynamoParams')
+const createS3Params = require('./mappers/createS3Params')
 
-const addProductInfos = async (productInfos) => {
+const addProductInfos = async (payload) => {
   try {
-    const checkProductInfos = validation()
+    const isValid = await validate(payload)
 
-    // REGRA DE NEGOCIO
+    if (!isValid) {
+      return isValid.message
+    }
 
-    const product = await repository.insert(productInfos)
+    const { params, imagePath } = createS3Params(payload)
+
+    await s3.upload(params)
+
+    const dynamoParams = createDynamoParams(payload, imagePath)
+
+    const product = await repository.insert(dynamoParams)
 
     return product
   } catch (err) {

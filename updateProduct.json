@@ -1,0 +1,47 @@
+{
+  "resource": "/products/{id}",
+  "path": "/products/5249fa46-9b9b-4e78-ae91-d30f5e23ec13",
+  "httpMethod": "PUT",
+  "headers": null,
+  "multiValueHeaders": null,
+  "queryStringParameters": null,
+  "multiValueQueryStringParameters": null,
+  "pathParameters": {
+    "id": "5249fa46-9b9b-4e78-ae91-d30f5e23ec13"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "resourceId": "nepmaq",
+    "resourcePath": "/products/{id}",
+    "httpMethod": "PUT",
+    "extendedRequestId": "ahdNuG7QIAMFwxg=",
+    "requestTime": "07/Jul/2024:03:44:36 +0000",
+    "path": "/products/{id}",
+    "accountId": "907257771839",
+    "protocol": "HTTP/1.1",
+    "stage": "test-invoke-stage",
+    "domainPrefix": "testPrefix",
+    "requestTimeEpoch": 1720323876373,
+    "requestId": "697499c5-f2ac-4cba-ad41-b97f98ca3d2f",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "cognitoIdentityId": null,
+      "apiKey": "test-invoke-api-key",
+      "principalOrgId": null,
+      "cognitoAuthenticationType": null,
+      "userArn": "arn:aws:iam::907257771839:user/tech_store_admin",
+      "apiKeyId": "test-invoke-api-key-id",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+      "accountId": "907257771839",
+      "caller": "AIDA5GPGG647VMWORPJB2",
+      "sourceIp": "test-invoke-source-ip",
+      "accessKey": "ASIA5GPGG647W56QUPS6",
+      "cognitoAuthenticationProvider": null,
+      "user": "AIDA5GPGG647VMWORPJB2"
+    },
+    "domainName": "testPrefix.testDomainName",
+    "apiId": "e0nmq5qbac"
+  },
+  "body": "{\r\n  \"description\": \"CELULAR LENTO\",\r\n  \"image\": \"imageTest\",\r\n  \"price\": 200\r\n}",
+  "isBase64Encoded": false
+}

@@ -4,11 +4,12 @@ Resources:
       Properties:
         TableName: tech-store-products
         AttributeDefinitions:
-          - AttributeName: id
+          - AttributeName: ID
             AttributeType: S 
         KeySchema:
-          - AttributeName: id
+          - AttributeName: ID
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
+          
