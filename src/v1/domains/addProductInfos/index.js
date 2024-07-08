@@ -18,9 +18,17 @@ const addProductInfos = async (payload) => {
 
     const dynamoParams = createDynamoParams(payload, imagePath)
 
-    const product = await repository.insert(dynamoParams)
+    await repository.insert(dynamoParams)
 
-    return product
+    return {
+      ID: dynamoParams.Item.ID.S,
+      name: dynamoParams.Item.name.S,
+      description: dynamoParams.Item.description.S,
+      image: dynamoParams.Item.image.S,
+      price: dynamoParams.Item.price.S,
+      sku: dynamoParams.Item.sku.S,
+      category: dynamoParams.Item.category.S
+    }
   } catch (err) {
     throw new Error(err)
   }

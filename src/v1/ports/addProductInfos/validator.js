@@ -8,7 +8,7 @@ const schema = {
     image: { type: 'string', format: 'byte' },
     price: { type: 'number' },
     sku: { type: 'string' },
-    category: { type: 'string', enum: ['Smarthphone', 'TV', 'Acessories', 'Gadget'] }
+    category: { type: 'string' }
   },
   required: ['name', 'description', 'image', 'price', 'sku', 'category'],
   additionalProperties: false

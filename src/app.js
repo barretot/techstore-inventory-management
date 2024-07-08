@@ -40,7 +40,6 @@ exports.searchAllProductsHandler = async (event) => {
 
 exports.authenticateHandler = async (event) => {
   const response = await postAuthenticateRequest(JSON.parse(event.body))
-  console.log('TOUKEN', response)
   return response
 }
 
