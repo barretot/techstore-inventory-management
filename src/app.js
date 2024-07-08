@@ -45,9 +45,7 @@ exports.authenticateHandler = async (event) => {
 }
 
 exports.authorizerHandler = async (event) => {
-  console.log(event)
   const response = await postAuthorizerRequest(event)
-  console.log('VAI EMEM', response)
   return response
 }
 

@@ -1,5 +1,5 @@
 const repository = require('../../ports/putProductInfos/repository')
-const s3 = require('../../ports/addProductInfos/uploadImage')
+const s3 = require('../../ports/updateProductInfos/s3')
 const { isValidPayload } = require('../../ports/putProductInfos/validator')
 const { searchDynamoParams, updateDynamoParams } = require('./mappers/createDynamoParams')
 const { addS3Params, deleteS3Params } = require('./mappers/createS3Params')
