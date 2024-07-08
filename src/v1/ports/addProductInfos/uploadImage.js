@@ -5,12 +5,6 @@ const upload = async (product) => {
   return data
 }
 
-const deleteObject = async (key) => {
-  const data = await s3.deleteObject(key)
-  return data
-}
-
 module.exports = {
-  upload,
-  deleteObject
+  upload
 }
