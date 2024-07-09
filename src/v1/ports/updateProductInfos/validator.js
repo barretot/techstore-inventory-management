@@ -12,6 +12,7 @@ const schema = {
 }
 
 const schemaValidate = validate(schema)
+console.log(schemaValidate)
 
 const isValidPayload = (payload) => validator(payload, schemaValidate)
 
