@@ -1,19 +1,26 @@
-const repository = require('../../ports/getAllProductInfos/repository')
 const { searchAllDynamoParams } = require('./mappers/createDynamoParams')
 const { mapperDynamoResponse } = require('./mappers/mapperDynamoResponse')
 
-const searchAllProductInfos = async () => {
-  try {
-    const products = await repository.searchAll(
-      searchAllDynamoParams()
-    )
+module.exports = ({
+  repository
+}) => {
+  const searchAllProductInfos = async () => {
+    try {
+      const products = await repository.searchAll(
+        searchAllDynamoParams()
+      )
 
-    return mapperDynamoResponse(products)
-  } catch (err) {
-    throw new Error(err)
+      if (!products.Items.length) {
+        return { statusCode: '400', message: 'DynamoDB not contains products' }
+      }
+
+      return mapperDynamoResponse(products)
+    } catch (err) {
+      throw new Error(err)
+    }
   }
-}
 
-module.exports = {
-  searchAllProductInfos
+  return {
+    searchAllProductInfos
+  }
 }

@@ -6,9 +6,7 @@ const {
   postAuthorizerRequest,
   postSignUpRequest,
   postAuthenticateRequest
-} = require(
-  './v1/adapters/requests/postProducts'
-)
+} = require('./v1/adapters/requests/products')
 
 exports.addProductHandler = async (event) => {
   const response = await postProductsRequest(JSON.parse(event.body))
@@ -16,14 +14,9 @@ exports.addProductHandler = async (event) => {
 }
 
 exports.updateProductHandler = async (event) => {
-  const response = await putProductsRequest(
-    JSON.parse(event.body),
-    event.pathParameters.id
-  )
-  return {
-    statusCode: 200,
-    body: JSON.stringify(response)
-  }
+  const response = await putProductsRequest(JSON.parse(event.body), event.pathParameters.id)
+
+  return response
 }
 
 exports.searchProductHandler = async (event) => {

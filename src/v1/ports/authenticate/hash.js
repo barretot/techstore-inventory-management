@@ -1,9 +1,4 @@
-const { hash, compare } = require('../../adapters/bcrypt')
-
-const createHash = (password) => {
-  const data = hash(password)
-  return data
-}
+const { compare } = require('../../adapters/bcrypt')
 
 const comparePassword = async (password, userPassword) => {
   const data = await compare(password, userPassword)
@@ -12,6 +7,5 @@ const comparePassword = async (password, userPassword) => {
 }
 
 module.exports = {
-  createHash,
   comparePassword
 }

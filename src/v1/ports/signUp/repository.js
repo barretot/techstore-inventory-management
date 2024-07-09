@@ -5,6 +5,12 @@ const insert = async (user) => {
   return data
 }
 
+const searchByEmail = async (params) => {
+  const data = await dynamo.scan(params)
+  return data.Items ? data : { item: [] }
+}
+
 module.exports = {
-  insert
+  insert,
+  searchByEmail
 }

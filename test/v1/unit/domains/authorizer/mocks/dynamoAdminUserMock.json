@@ -1,0 +1,26 @@
+{
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "IAVCI4IBGBK0Q29DCM6V0D0CPNVV4KQNSO5AEMVJF66Q9ASUAAJG",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "Count": 1,
+  "Items": [
+    {
+      "password": {
+        "S": "$2b$10$XjEhNMyhkaM19nO6E/CEPO/wsys0vtUTi7du5rJHpYIdBBJjINgsa"
+      },
+      "ID": {
+        "S": "e70744fe-d955-4f2a-b6a5-2bb07a0603c5"
+      },
+      "email": {
+        "S": "teste@teste.com"
+      },
+      "name": {
+        "S": "User test"
+      }
+    }
+  ],
+  "ScannedCount": 2
+}

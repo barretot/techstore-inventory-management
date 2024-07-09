@@ -1,89 +1,56 @@
 service: techstore-inventory-management
 frameworkVersion: '4'
+configValidationMode: error
+deprecationNotificationMode: error
+useDotenv: true
 
 provider:
   name: aws
   runtime: nodejs20.x
   region: us-east-1
+  timeout: 30
+  versionFunctions: false
   stage: ${opt:stage, 'dev'}
 
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:PutItem
-        - dynamodb:GetItem
-        - dynamodb:Scan
-        - dynamodb:UpdateItem
-      Resource: 
-        - "arn:aws:dynamodb:us-east-1:907257771839:table/tech-store-products"
-        - "arn:aws:dynamodb:us-east-1:907257771839:table/tech-store-admins"
-    - Effect: Allow
-      Action:
-        - s3:PutObject
-        - s3:DeleteObject
-      Resource: "arn:aws:s3:::tech-store-images-bucket/*"
-
-functions:
-
-  searchProductInfos:
-    handler: src/app.searchProductHandler
-    events:
-      - http:
-          path: /products/{id}
-          method: GET
-          request:
-            parameters:
-              paths:
-                id: true
-          authorizer: authorizer
-
-  searchAllProductsInfos:
-    handler: src/app.searchAllProductsHandler
-    events:
-      - http:
-          path: /products
-          method: GET
-          authorizer: authorizer
-
-  addProductInfos:
-    handler: src/app.addProductHandler
-    events:
-      - http:
-          path: /products
-          method: POST
-          authorizer: authorizer
-
-  updateProductInfos:
-    handler: src/app.updateProductHandler
-    events:
-      - http:
-          path: /products/{id}
-          method: PUT
-          request:
-            parameters:
-              paths:
-                id: true
-          authorizer: authorizer
-
-  authenticate:
-    handler: src/app.authenticateHandler
-    events:
-      - http:
-          path: admin/authenticate
-          method: POST
-
-  authorizer:
-    handler: src/app.authorizerHandler
-
-  signUp:
-    handler: src/app.signUpHandler
-    events:
-      - http:
-          path: admin/register
-          method: POST
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:PutItem
+            - dynamodb:GetItem
+            - dynamodb:Scan
+            - dynamodb:UpdateItem
+          Resource:
+            - "arn:aws:dynamodb:us-east-1:907257771839:table/tech-store-products"
+            - "arn:aws:dynamodb:us-east-1:907257771839:table/tech-store-admins"
+        - Effect: Allow
+          Action:
+            - s3:PutObject
+            - s3:DeleteObject
+          Resource: "arn:aws:s3:::tech-store-images-bucket/*"
 
 plugins:
   - serverless-iam-roles-per-function
 
+functions: ${file(ymls/functions.yml)}
+
 resources: ${file(ymls/resources.yml)}
+
 custom: ${file(ymls/custom.yml)}
+
+package:
+  excludeDevDependencies: true
+  patterns:
+    - '!node_modules/serverless-**'
+    - '!coverage/**'
+    - '!test/**'
+    - '!.nyc_output/**'
+    - '!.env'
+    - '!.gitignore'
+    - '!package-lock.json'
+    - '!README.md'
+    - '!docs/**'
+    - '!.vscode/**'
+    - '!ymls/**'
+    - '!.editorconfig'

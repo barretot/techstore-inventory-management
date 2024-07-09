@@ -1,0 +1,81 @@
+{
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "SAK4G7PT4T60GH4C4MOS6NIOC7VV4KQNSO5AEMVJF66Q9ASUAAJG",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "Count": 3,
+  "Items": [
+    {
+      "image": {
+        "S": "https://tech-store-images-bucket.s3.amazonaws.com/imagens/69cd1b5e-4a0f-4591-8df2-2f5aca156eeb.jpg"
+      },
+      "category": {
+        "S": "Smarthphone"
+      },
+      "ID": {
+        "S": "6541ac45-7690-499b-a317-f088eb361a53"
+      },
+      "description": {
+        "S": "ÓTIMO"
+      },
+      "price": {
+        "N": "90000"
+      },
+      "name": {
+        "S": "iPhone 15"
+      },
+      "sku": {
+        "S": "PRODUCT_6ffa1d42-6aba-419a-aeb2-8dc4d6db4c93"
+      }
+    },
+    {
+      "image": {
+        "S": "https://tech-store-images-bucket.s3.amazonaws.com/imagens/19928bad-65cd-4ebb-8452-71e13e16c51b.jpg"
+      },
+      "category": {
+        "S": "TV"
+      },
+      "ID": {
+        "S": "6d5e899b-0405-4f72-9c75-8c8977fc26e5"
+      },
+      "description": {
+        "S": "FOTO NOVA"
+      },
+      "price": {
+        "N": "8900"
+      },
+      "name": {
+        "S": "TERLEVISOR"
+      },
+      "sku": {
+        "S": "PRODUCT_4e3e23ce-2391-45e5-aaa5-f6b1bde83b3d"
+      }
+    },
+    {
+      "image": {
+        "S": "https://tech-store-images-bucket.s3.amazonaws.com/imagens/47f693e7-2e41-418e-bf38-8c70a10223cc.jpg"
+      },
+      "category": {
+        "S": "TV"
+      },
+      "price": {
+        "N": "1000"
+      },
+      "description": {
+        "S": "CELULAR BOM"
+      },
+      "ID": {
+        "S": "8c1bbd20-e881-4699-90cb-dd2136a0ee6e"
+      },
+      "name": {
+        "S": "TERLEVISOR"
+      },
+      "sku": {
+        "S": "PRODUCT_2dae2255-8536-49e1-9cc6-b9ce9c0234e7"
+      }
+    }
+  ],
+  "ScannedCount": 3
+}

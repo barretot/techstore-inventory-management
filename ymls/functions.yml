@@ -1,0 +1,56 @@
+  searchProductInfos:
+    handler: src/app.searchProductHandler
+    events:
+      - http:
+          path: /products/{id}
+          method: GET
+          request:
+            parameters:
+              paths:
+                id: true
+          authorizer: authorizer
+
+  searchAllProductsInfos:
+    handler: src/app.searchAllProductsHandler
+    events:
+      - http:
+          path: /products
+          method: GET
+          authorizer: authorizer
+
+  addProductInfos:
+    handler: src/app.addProductHandler
+    events:
+      - http:
+          path: /products
+          method: POST
+          authorizer: authorizer
+
+  updateProductInfos:
+    handler: src/app.updateProductHandler
+    events:
+      - http:
+          path: /products/{id}
+          method: PUT
+          request:
+            parameters:
+              paths:
+                id: true
+          authorizer: authorizer
+
+  authenticate:
+    handler: src/app.authenticateHandler
+    events:
+      - http:
+          path: admin/authenticate
+          method: POST
+
+  authorizer:
+    handler: src/app.authorizerHandler
+
+  signUp:
+    handler: src/app.signUpHandler
+    events:
+      - http:
+          path: admin/register
+          method: POST

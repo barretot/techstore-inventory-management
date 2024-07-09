@@ -1,9 +1,4 @@
-const { generateJwtToken, verify } = require('../../adapters/jwt')
-
-const generateToken = async (request) => {
-  const data = await generateJwtToken(request)
-  return data
-}
+const { verify } = require('../../adapters/jwt')
 
 const verifyToken = async (request) => {
   const data = await verify(request)
@@ -11,6 +6,5 @@ const verifyToken = async (request) => {
 }
 
 module.exports = {
-  generateToken,
   verifyToken
 }

@@ -3,14 +3,11 @@ const { validate, validator } = require('../../adapters/validator')
 const schema = {
   type: 'object',
   properties: {
-    name: { type: 'string' },
     description: { type: 'string' },
     image: { type: 'string', format: 'byte' },
-    price: { type: 'number' },
-    sku: { type: 'string' },
-    category: { type: 'string', enum: ['Smarthphone', 'TV', 'Acessories', 'Gadget'] }
+    price: { type: 'number' }
   },
-  required: ['name', 'description', 'image', 'price', 'sku', 'category'],
+  required: ['description', 'image', 'price'],
   additionalProperties: false
 }
 

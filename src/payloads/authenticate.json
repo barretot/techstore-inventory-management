@@ -39,6 +39,6 @@
     "domainName": "testPrefix.testDomainName",
     "apiId": "e0nmq5qbac"
   },
-  "body": "{\"email\":\"teste@teste.com\",\"password\":\"78912312\"}",
+  "body": "{\"email\":\"teste@teste4.com\",\"password\":\"1234567\"}",
   "isBase64Encoded": false
 }

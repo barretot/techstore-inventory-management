@@ -1,37 +1,39 @@
-const { verifyToken } = require('../../ports/authorizer/jwt')
+module.exports = ({
+  jwt
+}) => {
+  const authorizer = async (event) => {
+    try {
+      const token = event.authorizationToken.split(' ')[1]
 
-const authorizer = async (event) => {
-  try {
-    const token = event.authorizationToken.split(' ')[1]
+      if (!token) {
+        return generatePolicy('user', 'Deny', event.methodArn)
+      }
 
-    if (!token) {
-      return generatePolicy('user', 'Deny', event.methodArn)
-    }
+      const decoded = await jwt.verifyToken(token)
 
-    const decoded = await verifyToken(token)
-
-    return generatePolicy(decoded.id, 'Allow', event.methodArn)
-  } catch (error) {
-    return generatePolicy('user', 'Deny', event.methodArn)
-  }
-}
-
-const generatePolicy = (principalId, effect, resource) => {
-  const authResponse = {
-    principalId,
-    policyDocument: {
-      Version: '2012-10-17',
-      Statement: [{
-        Action: 'execute-api:Invoke',
-        Effect: effect,
-        Resource: resource
-      }]
+      return generatePolicy(decoded.id, 'Allow', event.methodArn)
+    } catch (err) {
+      throw new Error(err)
     }
   }
 
-  return authResponse
-}
+  const generatePolicy = (principalId, effect, resource) => {
+    const authResponse = {
+      principalId,
+      policyDocument: {
+        Version: '2012-10-17',
+        Statement: [{
+          Action: 'execute-api:Invoke',
+          Effect: effect,
+          Resource: resource
+        }]
+      }
+    }
 
-module.exports = {
-  authorizer
+    return authResponse
+  }
+
+  return {
+    authorizer
+  }
 }

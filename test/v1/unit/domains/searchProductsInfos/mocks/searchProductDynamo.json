@@ -1,0 +1,31 @@
+{
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "08ECI96GHLQQ9LM3UD4D4J9NK7VV4KQNSO5AEMVJF66Q9ASUAAJG",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "Item": {
+    "image": {
+      "S": "imageUrl"
+    },
+    "category": {
+      "S": "Smarthphone"
+    },
+    "ID": {
+      "S": "6541ac45-7690-499b-a317-f088eb361a53"
+    },
+    "description": {
+      "S": "CEL BOM"
+    },
+    "price": {
+      "N": "90000"
+    },
+    "name": {
+      "S": "iPhone 15"
+    },
+    "sku": {
+      "S": "PRODUCT_6ffa1d42-6aba-419a-aeb2-8dc4d6db4c93"
+    }
+  }
+}
