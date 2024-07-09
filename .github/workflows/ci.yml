@@ -1,4 +1,5 @@
 name: ci-nodejs-workflow
+
 on:
   push:
     branches:
@@ -12,9 +13,23 @@ jobs:
   check-application:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - run: npm install
-      - run: npm test
+      - run: npm run lint
+      - run: npm run test:coverage
+
+      - name: Upload Code Coverage
+        id: report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: coverage/lcov.info
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
