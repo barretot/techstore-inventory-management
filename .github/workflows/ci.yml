@@ -25,11 +25,10 @@ jobs:
         run: ls -R coverage
 
       - name: Upload Code Coverage
-        id: report
         uses: actions/upload-artifact@v2
         with:
           name: coverage-report
-          path: /coverage/lcov.info
+          path: coverage/lcov.info  # Corrigido o caminho para o relatório de cobertura
 
       # - name: SonarCloud Scan
       #   uses: SonarSource/sonarcloud-github-action@master
