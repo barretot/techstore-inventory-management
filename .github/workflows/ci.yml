@@ -21,17 +21,14 @@ jobs:
       - run: npm run lint
       - run: npm run test:coverage
 
-      - name: List coverage directory
-        run: ls -R coverage
-
       - name: Upload Code Coverage
         uses: actions/upload-artifact@v2
         with:
           name: coverage-report
-          path: coverage/lcov.info  # Corrigido o caminho para o relatório de cobertura
+          path: coverage/lcov.info
 
-      # - name: SonarCloud Scan
-      #   uses: SonarSource/sonarcloud-github-action@master
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
