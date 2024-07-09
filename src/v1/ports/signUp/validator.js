@@ -5,9 +5,9 @@ const schema = {
   properties: {
     name: { type: 'string' },
     email: { type: 'string' },
-    pasword: { type: 'string', format: 'password' }
+    password: { type: 'string', format: 'password' }
   },
-  required: ['name', 'email', 'pasword'],
+  required: ['name', 'email', 'password'],
   additionalProperties: false
 }
 

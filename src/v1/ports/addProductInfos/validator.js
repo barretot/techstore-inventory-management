@@ -10,7 +10,7 @@ const schema = {
     sku: { type: 'string' },
     category: { type: 'string' }
   },
-  required: ['name', 'description', 'image', 'price', 'sku', 'category'],
+  required: ['name', 'description', 'image', 'price', 'category'],
   additionalProperties: false
 }
 

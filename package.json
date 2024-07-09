@@ -6,8 +6,8 @@
     "lint": "standard --fix",
     "lint:fix": "npm run lint -- --fix",
     "lint:staged": "lint-staged",
-    "test": "npm run test:unit && npm run test:e2e",
-    "test:unit": "npm run base:test -- -c jest.config.unit.js --coverage",
+    "test": "jest --silent",
+    "test:coverage": "jest --coverage",
     "base:test": "jest",
     "prepare": "husky install"
   },
@@ -34,5 +34,14 @@
     "lint-staged": "^15.0.2",
     "serverless-iam-roles-per-function": "^3.2.0",
     "standard": "^17.1.0"
+  },
+  "standard": {
+    "env": [
+      "jest",
+      "node"
+    ]
+  },
+  "directories": {
+    "test": "test"
   }
 }
